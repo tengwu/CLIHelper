@@ -10,6 +10,7 @@
 #include <mutex>
 #include "ICMDBase.h"
 #include "IOutput.h"
+#include "ParamSet.h"
 
 class CMDFactory {
 public:
@@ -55,12 +56,11 @@ public:
     /*!
      * @brief Run a command.
      *
-     * @param argc The size of argv.
-     * @param argv Start from subcommand name. For example, we have a docker
+     * @param paramsSet Start from subcommand name. For example, we have a docker
      *             command 'docker cp src dest' whose subcommand is cp.
      *             Argv is an array of {"cp", "src", "dest"}, and argc is 3.
      */
-    void Process(int argc, const char **argv);
+    void Process(ParamSet *paramSet, IOutput *log, IOutput *con);
 
 #ifdef _DEBUG
     /*!

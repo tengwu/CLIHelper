@@ -6,7 +6,7 @@
 
 void IConsoleListener::MainLoop(int argc, char **argv)
 {
-    // readline
+    // read a line
     // parse params
     // process
 }

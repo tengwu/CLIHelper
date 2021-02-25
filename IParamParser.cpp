@@ -3,3 +3,8 @@
 //
 
 #include "IParamParser.h"
+
+void IParamParser::Parse(char *argv, ParamSet *paramSet)
+{
+    // TODO: parse params
+}

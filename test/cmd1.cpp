@@ -4,6 +4,7 @@
 
 #include "ICMDBase.h"
 #include <cstdio>
+#include <ParamSet.h>
 
 class TestCMDHelp : public ICMDBase {
 public:
@@ -16,6 +17,10 @@ public:
     }
 
     void Execute() override {
+        printf("You execute the cmd %s|%s\n", name.c_str(), short_name.c_str());
+    }
+
+    void Execute(ParamSet *paramSet, IOutput *log, IOutput *con) override {
         printf("You execute the cmd %s|%s\n", name.c_str(), short_name.c_str());
     }
 };

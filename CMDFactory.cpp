@@ -24,15 +24,11 @@ void CMDFactory::UnregisterCMD(const std::string &name)
         cmds.erase(name);
 }
 
-void CMDFactory::Process(int argc, const char **argv)
+void CMDFactory::Process(ParamSet *paramSet, IOutput *log, IOutput *con)
 {
-    cout << "argc: " << argc << endl;
-    for (int i = 0; i < argc; i++) {
-        cout << argv[i] << endl;
-    }
-    // 1. parse the arguments
-
-
-    // 2. run the command
-
+    string subcmd = paramSet->GetSubCMD();
+    // run the command
+    lock_guard<mutex> _lock(cmds_lock);
+    if (cmds.find(subcmd) != cmds.end()) return ;
+    cmds[subcmd]->Execute(paramSet, log, con);
 }

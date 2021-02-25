@@ -14,10 +14,14 @@ class ParamSet {
 private:
     std::map<std::string, std::string> params; // TODO: map<string, ParamValue> params;
     std::set<std::string> paramsSeted;
+    std::string subCMD;
 
 public:
     ParamSet(){}
     ~ParamSet(){}
+
+    std::string GetSubCMD();
+    void SetSubCMD(std::string &subCMD);
 
     void Set(std::string &argName);
     void Set(std::string &argName, std::string &argValue);

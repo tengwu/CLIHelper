@@ -9,12 +9,26 @@
 #define CLIHELPER_ICONSOLELISTENER_H
 
 
+#include "IOutput.h"
+
 class IConsoleListener {
+private:
+    IOutput *log;
+    IOutput *con;
+
 public:
     IConsoleListener(){}
     ~IConsoleListener(){};
 
     virtual void MainLoop(int argc, char **argv);
+
+    inline virtual void SetLog(IOutput *log) {
+        this->log = log;
+    }
+
+    inline virtual void SetCon(IOutput *con) {
+        this->con = con;
+    }
 };
 
 

@@ -6,6 +6,8 @@
 #define CMDHELPER_ICMDBASE_H
 
 #include <string>
+#include "IOutput.h"
+#include "ParamSet.h"
 
 class ICMDBase {
 public:
@@ -17,12 +19,19 @@ public:
     /*!
      * @brief HelpInfo info
      */
-    virtual void HelpInfo() {};
+    virtual void HelpInfo() {}
 
     /*!
      * @brief The implementation of the command.
      */
-    virtual void Execute() {};
+    virtual void Execute() {
+        // TODO: create ICMDBase's log&con
+    }
+
+    /*!
+     * @brief The implementation of the command.
+     */
+    virtual void Execute(ParamSet *paramSet, IOutput *log, IOutput *con);
 
 protected:
     std::string name;

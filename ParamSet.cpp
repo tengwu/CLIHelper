@@ -4,6 +4,15 @@
 
 #include "ParamSet.h"
 
+std::string ParamSet::GetSubCMD()
+{
+    return subCMD;
+}
+void ParamSet::SetSubCMD(std::string &subCMD)
+{
+    this->subCMD = subCMD;
+}
+
 void ParamSet::Set(std::string &argName)
 {
     paramsSeted.insert(argName);
@@ -24,4 +33,3 @@ bool ParamSet::IsSet(std::string &argName)
     return paramsSeted.find(argName) != paramsSeted.end();
 }
 
-#include "ParamSet.h"
